@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+  <adfmf:feature id="deloitte.custom.app.Springboard" name="Springboard">
+    <adfmf:content id="deloitte.custom.app.Springboard.1">
+      <adfmf:amx file="deloitte.custom.app.Springboard/Page/SpringboardCustomPG.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="deloitte.custom.app.Dashboard" name="Dashboard">
+    <adfmf:content id="deloitte.custom.app.Dashboard.1">
+      <adfmf:amx file="deloitte.custom.app.Dashboard/taskflow/CDDashboardTF.xml#CDDashboardTF"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="deloitte.custom.app.Settings" name="Settings">
+    <adfmf:content id="deloitte.custom.app.Settings.1">
+      <adfmf:amx file="deloitte.custom.app.Settings/taskflow/CDSettingsTF.xml#CDSettingsTF"/>
+    </adfmf:content>
+  </adfmf:feature>
+</adfmf:features>

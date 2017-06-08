@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="CDSettingsTF">
+    <default-activity>SettingsPG</default-activity>
+    <view id="SettingsPG">
+      <page>/deloitte.custom.app.Settings/Page/SettingsPG.amx</page>
+    </view>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>
