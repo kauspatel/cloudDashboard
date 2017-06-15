@@ -4,15 +4,24 @@
     <adfmf:content id="deloitte.custom.app.Springboard.1">
       <adfmf:amx file="deloitte.custom.app.Springboard/Page/SpringboardCustomPG.amx"/>
     </adfmf:content>
+    <adfmf:properties id="p3">
+      <adfmf:property name="iOSWebView" value="legacy" id="p4"/>
+    </adfmf:properties>
   </adfmf:feature>
   <adfmf:feature id="deloitte.custom.app.Dashboard" name="Dashboard">
     <adfmf:content id="deloitte.custom.app.Dashboard.1">
       <adfmf:amx file="deloitte.custom.app.Dashboard/taskflow/CDDashboardTF.xml#CDDashboardTF"/>
     </adfmf:content>
+    <adfmf:properties id="p1">
+      <adfmf:property name="iOSWebView" value="legacy" id="p2"/>
+    </adfmf:properties>
   </adfmf:feature>
   <adfmf:feature id="deloitte.custom.app.Settings" name="Settings">
     <adfmf:content id="deloitte.custom.app.Settings.1">
       <adfmf:amx file="deloitte.custom.app.Settings/taskflow/CDSettingsTF.xml#CDSettingsTF"/>
     </adfmf:content>
+    <adfmf:properties id="p5">
+      <adfmf:property name="iOSWebView" value="legacy" id="p6"/>
+    </adfmf:properties>
   </adfmf:feature>
 </adfmf:features>
