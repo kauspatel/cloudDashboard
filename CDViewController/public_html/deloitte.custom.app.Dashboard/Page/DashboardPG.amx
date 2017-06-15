@@ -3,13 +3,40 @@
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
     <amx:facet name="header">
-      <amx:outputText value="Header" id="ot1"/>
+      <amx:outputText value="Report List" id="ot1"/>
     </amx:facet>
     <amx:facet name="primary">
-      <amx:commandButton id="cb1"/>
+      <amx:commandButton id="cb1" text="View Report"/>
     </amx:facet>
     <amx:facet name="secondary">
       <amx:commandButton id="cb2"/>
     </amx:facet>
+    <amx:listView var="row" value="#{bindings.reportDetailsData.collectionModel}"
+                  fetchSize="#{bindings.reportDetailsData.rangeSize}"
+                  selectedRowKeys="#{bindings.reportDetailsData.collectionModel.selectedRow}"
+                  initialScrollRowKeys="#{bindings.reportDetailsData.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.reportDetailsData.collectionModel.makeCurrent}"
+                  showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
+      <amx:listItem id="li1">
+        <amx:tableLayout width="100%" id="tl1">
+          <amx:rowLayout id="rl1">
+            <amx:cellFormat width="10px" rowSpan="2" id="cf1"/>
+            <amx:cellFormat width="60%" height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf2">
+              <amx:goLink text="#{row.reportName}" id="gl1" url="#{row.reportURL}"/>
+            </amx:cellFormat>
+            <amx:cellFormat width="10px" rowSpan="2" id="cf3"/>
+            <amx:cellFormat width="40%" halign="end" id="cf4"/>
+          </amx:rowLayout>
+          <amx:rowLayout id="rl2">
+            <amx:cellFormat width="60%" height="#{deviceScope.device.os=='Android'?'22':'19'}px" id="cf5">
+              <amx:outputText value="#{row.userAccessGroup}" styleClass="adfmf-listItem-captionText" id="ot4"/>
+            </amx:cellFormat>
+            <amx:cellFormat width="40%" halign="end" id="cf6">
+              <amx:outputText value="#{row.module}" styleClass="adfmf-listItem-captionText" id="ot5"/>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:listItem>
+    </amx:listView>
   </amx:panelPage>
 </amx:view>
