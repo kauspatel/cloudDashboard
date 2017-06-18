@@ -1,0 +1,113 @@
+@charset "windows-1252";
+
+@import url('../font-awesome-4.3.0/css/font-awesome.min.css');
+
+@import url('../font-awesome-4.3.0/css/font-awesome.css');
+
+.amx-listView-divider{
+    background-color: ThreeDShadow;
+}
+
+.amx-listView-divider .amx-listView-dividerText{
+    color: White;  
+}
+/*html[dir=ltr] .amx-listView-disclosedIcon{
+    background-image: url("../../expand-button.png");
+}
+html[dir=ltr] .amx-listView-undisclosedIcon{
+    background-image: url("../../collapse-button.png");    
+}
+*/
+.amx-listView-dividerCounter{
+    background-color:#1EBE92;
+    border-color:#1EBE92;
+}
+
+html[dir=ltr] .amx-selectOneChoice .selectItemsContainer {
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    -webkit-border-image: none;
+    border-image: none;
+    position: static;
+    height: 40px;
+    background-image: url("../../DownArrow.png");
+    background-repeat: no-repeat;
+    background-position: 98%;
+}
+
+/* Android Title bar styling begin */
+.amx-panelPage-header-appIcon {
+    /*background-image: url("images/Icon.png");
+    border-bottom-color: #81bc00;
+    background-color: #002776;*/
+    display:none;
+}
+
+.amx-panelPage-header{
+    border-bottom-color: #1EBE92; 
+    background-color:Black;    
+    color:White;
+    font-size: large; 
+    font-weight: bold; 
+    font-family: 'Arial Black';
+}
+
+.amx-panelPage-header .amx-outputText  {
+    color: White;
+    font-size: large; 
+    font-weight: bold; 
+    font-family: 'Arial Black';
+}
+/* Android Title bar styling end */
+
+
+.amx-panelPage-content > .amx-outputText {
+    color: #002776;
+    text-align: center;
+    font: 16px Arial,Helvetica,Sans-serif;
+    font-size: large; 
+    font-weight: 400; 
+}
+
+.amx-panelPage-header-overflowIcon{
+    display:none;
+}
+
+.remove_ul {
+text-decoration: none;
+padding: 0px !important;
+}
+
+/* Same padding for LTR & RTL but for specificity, we are adding html[dir] to the selector */
+html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topStart .field-value,
+html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topCenter .field-value,
+html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topEnd .field-value {
+    padding: 0px 10px 10px 5px;
+}
+   
+.amx-commandButton.amx-selected {
+    outline: none;
+    outline-style:none;
+    box-shadow:none;
+    border-color:transparent;
+    background-color:transparent;
+    background-image:none;
+   }
+
+.appIconStyle{
+    padding-left: 10px;
+}
+
+.iconstyle text{
+    color:#ffffff;
+}
+.iconstyle label{
+    color:#ffffff; 
+}
+.iconstyle-buttonBackground{
+    background: #000000;
+}
+.iconstyle-buttonBackground:active{
+    background: #000000;
+}

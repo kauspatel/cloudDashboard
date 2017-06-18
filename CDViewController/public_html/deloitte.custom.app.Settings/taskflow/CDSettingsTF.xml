@@ -4,12 +4,12 @@
     <default-activity>SettingsPG</default-activity>
     <managed-bean id="__1">
     <managed-bean-name>SlidingDrawerBean</managed-bean-name>
-    <managed-bean-class>deloitte.custom.app.application.service.SlidingDrawerBean</managed-bean-class>
+    <managed-bean-class>deloitte.custom.app.application.SlidingDrawerBean</managed-bean-class>
     <managed-bean-scope>application</managed-bean-scope>
   </managed-bean>
     <managed-bean id="__2">
     <managed-bean-name>CloudManagedBean</managed-bean-name>
-    <managed-bean-class>deloitte.custom.app.application.service.CloudManagedBean</managed-bean-class>
+    <managed-bean-class>deloitte.custom.app.application.CloudManagedBean</managed-bean-class>
     <managed-bean-scope>application</managed-bean-scope>
   </managed-bean>
     <view id="SettingsPG">

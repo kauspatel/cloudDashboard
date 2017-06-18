@@ -3,13 +3,14 @@
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
     <amx:facet name="header">
-      <amx:outputText value="Header" id="ot1"/>
-    </amx:facet>
-    <amx:facet name="primary">
-      <amx:commandButton id="cb1"/>
-    </amx:facet>
-    <amx:facet name="secondary">
-      <amx:commandButton id="cb2"/>
+      <amx:tableLayout id="tl1" width="100%">
+        <amx:rowLayout id="rl1">
+          <amx:cellFormat id="cf1" halign="center" valign="middle">
+            <amx:outputText value="Welcome to your Dashboard!" id="ot1"
+                            inlineStyle="padding-top:0px; padding-left:-5%"/>
+          </amx:cellFormat>
+        </amx:rowLayout>
+      </amx:tableLayout>
     </amx:facet>
     <amx:listView var="row" value="#{bindings.reportDetails.collectionModel}"
                   fetchSize="#{bindings.reportDetails.rangeSize}"
@@ -18,9 +19,9 @@
                   selectionListener="#{bindings.reportDetails.collectionModel.makeCurrent}"
                   showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
       <amx:listItem id="li1">
-        <amx:tableLayout width="100%" id="tl1">
-          <amx:rowLayout id="rl1">
-            <amx:cellFormat width="10px" rowSpan="2" id="cf1"/>
+        <amx:tableLayout width="100%" id="tl2">
+          <amx:rowLayout id="rl3">
+            <amx:cellFormat width="10px" rowSpan="2" id="cf7"/>
             <amx:cellFormat width="60%" height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf2">
               <amx:goLink text="#{row.reportName}" id="gl1" url="#{row.reportUrl}"/>
             </amx:cellFormat>
@@ -38,5 +39,17 @@
         </amx:tableLayout>
       </amx:listItem>
     </amx:listView>
+        <amx:facet name="primary">
+            <amx:tableLayout id="tl7" width="100%" styleClass="appIconStyle">
+                <amx:rowLayout id="rl7">
+                    <amx:cellFormat id="cf8" valign="middle" width="100%">
+                        <amx:commandButton id="cb3"
+                                           icon="/resources/css/images/#{applicationScope.isSprinboardOpen eq 'Y' ? 'Back' : 'Menu'}.png"
+                                           actionListener="#{SlidingDrawerBean.leftOverlay}"
+                                           styleClass="iconstyle iconstyle-buttonBackground"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:facet>
   </amx:panelPage>
 </amx:view>

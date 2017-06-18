@@ -29,7 +29,7 @@
       <hash><url n="URL" path="CDApplicationController/CDApplicationController.jpr"/></hash>
       <hash><url n="URL" path="CDViewController/CDViewController.jpr"/></hash>
    </list>
-   <value n="MafApplicationJitCleanRequired" v="false"/>
+   <value n="MafApplicationJitCleanRequired" v="true"/>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
          <hash n="Android1">
@@ -76,6 +76,44 @@
                </list>
             </hash>
             <url n="jarURL" path="deploy/Android1/Android1.jar/"/>
+            <hash n="mnfImageOptions">
+               <list n="deviceTypes">
+                  <hash>
+                     <value n="appIconPath" v="resources/android/display-xxhdpi-icon.png"/>
+                     <value n="deviceTypeName" v="Extra-Extra-High Density"/>
+                     <value n="landscapeSplashScreenPath" v="resources/android/Extra high density landscape.png"/>
+                     <value n="portraitSplashScreenPath" v="resources/android/Extra High Density portrait.png"/>
+                  </hash>
+                  <hash>
+                     <value n="appIconPath" v="resources/android/display-mdpi-icon.png"/>
+                     <value n="deviceTypeName" v="Medium Density"/>
+                     <value n="landscapeSplashScreenPath" v="resources/android/Medium density landscape.png"/>
+                     <value n="portraitSplashScreenPath" v="resources/android/Meduin Density portrait.png"/>
+                  </hash>
+                  <hash>
+                     <value n="appIconPath" v="resources/android/display-hdpi-icon.png"/>
+                     <value n="deviceTypeName" v="High Density"/>
+                     <value n="landscapeSplashScreenPath" v="resources/android/High Density landscape.png"/>
+                     <value n="portraitSplashScreenPath" v="resources/android/High Density portrait.png"/>
+                  </hash>
+                  <hash>
+                     <value n="appIconPath" v="resources/android/display-xxxhdpi-icon.png"/>
+                     <value n="deviceTypeName" v="Extra-Extra-Extra-High Density"/>
+                  </hash>
+                  <hash>
+                     <value n="appIconPath" v="resources/android/display-xhdpi-icon.png"/>
+                     <value n="deviceTypeName" v="Extra-High Density"/>
+                     <value n="landscapeSplashScreenPath" v="resources/android/Extra high density landscape.png"/>
+                     <value n="portraitSplashScreenPath" v="resources/android/Extra High Density portrait.png"/>
+                  </hash>
+                  <hash>
+                     <value n="appIconPath" v="resources/android/display-ldpi-icon.png"/>
+                     <value n="deviceTypeName" v="Low Density"/>
+                     <value n="landscapeSplashScreenPath" v="resources/android/Low Density landscape.png"/>
+                     <value n="portraitSplashScreenPath" v="resources/android/Low density portrait.png"/>
+                  </hash>
+               </list>
+            </hash>
             <value n="profileClass" v="oracle.adfmf.framework.dt.deploy.android.AndroidProfile"/>
             <value n="profileName" v="Android1"/>
          </hash>
@@ -234,6 +272,7 @@
    </hash>
    <hash n="shared-project-properties">
       <hash n="oracle.jdeveloper.runner.RunConfigurations">
+         <value n="activeName" v="iOS Simulator"/>
          <hash n="runConfigurationDefinitions">
             <hash n="Android Device">
                <hash n="Android_options">
