@@ -29,7 +29,7 @@
       <hash><url n="URL" path="CDApplicationController/CDApplicationController.jpr"/></hash>
       <hash><url n="URL" path="CDViewController/CDViewController.jpr"/></hash>
    </list>
-   <value n="MafApplicationJitCleanRequired" v="true"/>
+   <value n="MafApplicationJitCleanRequired" v="false"/>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
          <hash n="Android1">

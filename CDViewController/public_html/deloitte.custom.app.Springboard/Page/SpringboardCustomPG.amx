@@ -2,9 +2,15 @@
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
-    <amx:facet name="header">
-      <amx:outputText value="Header" id="ot1"/>
-    </amx:facet>
+        <amx:facet name="header">
+            <amx:tableLayout id="tl1" width="100%">
+                <amx:rowLayout id="rl1">
+                    <amx:cellFormat id="cf1" halign="center" valign="middle">
+                        <amx:outputText value="Springboard" id="ot1" inlineStyle="width:90%;"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:facet>
     <amx:facet name="primary">
       <amx:commandButton id="cb1"/>
     </amx:facet>

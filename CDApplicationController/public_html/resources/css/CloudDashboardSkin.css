@@ -44,6 +44,16 @@ html[dir=ltr] .amx-selectOneChoice .selectItemsContainer {
     display:none;
 }
 
+.amx-panelPage-facet-primary{
+    width:10%;
+	align-items:center;
+}
+
+.amx-panelPage-facet-secondary{
+    width:10%;
+	align-items:center;
+}
+
 .amx-panelPage-header{
     border-bottom-color: #1EBE92; 
     background-color:Black;    
@@ -51,6 +61,11 @@ html[dir=ltr] .amx-selectOneChoice .selectItemsContainer {
     font-size: large; 
     font-weight: bold; 
     font-family: 'Arial Black';
+}
+
+.amx-panelPage-facet-header{
+	align-items:center;
+	width:80%
 }
 
 .amx-panelPage-header .amx-outputText  {
@@ -77,6 +92,15 @@ html[dir=ltr] .amx-selectOneChoice .selectItemsContainer {
 .remove_ul {
 text-decoration: none;
 padding: 0px !important;
+font-size:x-large;
+font-weight: bolder;
+color: white;
+}
+
+.report_detail {
+font-size: large;
+color: white;
+font-weight: bold;
 }
 
 /* Same padding for LTR & RTL but for specificity, we are adding html[dir] to the selector */

@@ -5,30 +5,45 @@
 @import url('../font-awesome-4.3.0/css/font-awesome.css');
 
 /* Android Title bar styling begin */
+
+
+/* Android Title bar styling begin */
 .amx-panelPage-header-appIcon {
     /*background-image: url("images/Icon.png");
     border-bottom-color: #81bc00;
     background-color: #002776;*/
-
-    display: none;
+    display:none;
 }
 
-.amx-panelPage-header {
-    border-bottom-color: #1EBE92;
-    background-color: #000000;
-    color: #000000;
-    font-size: large;
-    font-weight: bold;
+.amx-panelPage-facet-primary{
+    width:10%;
+	align-items:center;
+}
+
+.amx-panelPage-facet-secondary{
+    width:10%;
+	align-items:center;
+}
+
+.amx-panelPage-header{
+    border-bottom-color: #1EBE92; 
+    background-color:Black;    
+    color:White;
+    font-size: large; 
+    font-weight: bold; 
     font-family: 'Arial Black';
 }
 
-.amx-panelPage-header .amx-outputText {
-    color: #FFFFFF;
-    font-size: medium;
-    font-weight: normal;
-    text-overflow: ellipsis;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    white-space: pre-wrap;
+.amx-panelPage-facet-header{
+	align-items:center;
+	width:80%
+}
+
+.amx-panelPage-header .amx-outputText  {
+    color: White;
+    font-size: large; 
+    font-weight: bold; 
+    font-family: 'Arial Black';
 }
 /* Android Title bar styling end */
 .amx-panelPage-content > .amx-outputText {

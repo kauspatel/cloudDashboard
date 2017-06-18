@@ -2,15 +2,15 @@
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
-    <amx:facet name="header">
-      <amx:tableLayout id="tl1" width="100%">
-        <amx:rowLayout id="rl1">
-          <amx:cellFormat id="cf1" halign="center" valign="middle">
-            <amx:outputText value="Settings" id="ot1" inlineStyle="padding-top:0px; padding-left:-5%"/>
-          </amx:cellFormat>
-        </amx:rowLayout>
-      </amx:tableLayout>
-    </amx:facet>
+        <amx:facet name="header">
+            <amx:tableLayout id="tl1" width="100%">
+                <amx:rowLayout id="rl1">
+                    <amx:cellFormat id="cf1" halign="center" valign="middle">
+                        <amx:outputText value="Settings" id="ot1" inlineStyle="width:90%;"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:facet>
         <amx:facet name="primary">
             <amx:tableLayout id="tl7" width="100%" styleClass="appIconStyle">
                 <amx:rowLayout id="rl7">
