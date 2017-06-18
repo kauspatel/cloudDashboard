@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="CloudDashboardApp" id="com.company.CloudDashboardApp"
+                   appControllerFolder="CDApplicationController"
+                   listener-class="oracle.maf.impl.cdm.lifecycle.InitDBLifeCycleListener">
+  <adfmf:featureReference refId="deloitte.custom.app.Springboard" id="fr1" showOnNavigationBar="false"
+                          showOnSpringboard="false"/>
+  <adfmf:featureReference refId="deloitte.custom.app.Dashboard" id="fr2"/>
+  <adfmf:featureReference refId="deloitte.custom.app.Settings" id="fr3"/>
+  <adfmf:navigation>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" width="300">
+      <adfmf:springboardFeatureReference refId="deloitte.custom.app.Springboard" id="sfr1"/>
+    </adfmf:springboard>
+    <adfmf:navigationBar enabled="false"/>
+  </adfmf:navigation>
+</adfmf:application>

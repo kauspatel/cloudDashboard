@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+  <amx:panelPage id="pp1">
+    <amx:facet name="header">
+      <amx:outputText value="Header" id="ot1"/>
+    </amx:facet>
+    <amx:facet name="primary">
+      <amx:commandButton id="cb1"/>
+    </amx:facet>
+    <amx:facet name="secondary">
+      <amx:commandButton id="cb2"/>
+    </amx:facet>
+    <amx:listView var="row" value="#{bindings.features.collectionModel}" fetchSize="#{bindings.features.rangeSize}"
+                  selectedRowKeys="#{bindings.features.collectionModel.selectedRow}"
+                  initialScrollRowKeys="#{bindings.features.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.features.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                  bufferStrategy="viewport" id="lv1">
+      <amx:listItem id="li1">
+        <amx:tableLayout id="tl1" halign="center" layout="weighted">
+          <amx:rowLayout id="rl1">
+            <amx:cellFormat id="cf1" valign="middle" halign="start">
+              <amx:commandLink id="cl1" actionListener="#{bindings.resetFeature.execute}">
+                <amx:outputText value="#{row.feature_name}" id="ot2"/>
+                <amx:setPropertyListener id="spl2" from="#{'false'}"
+                        to="#{applicationScope.CloudManagedBean.springBoardStatus}" type="action"/>
+                <amx:setPropertyListener id="spl3" to="#{pageFlowScope.FeatureId}" type="action"
+                                        from="#{row.feature_id}"/>
+                <amx:actionListener id="al2" binding="#{SlidingDrawerBean.leftOverlay}"/>
+               </amx:commandLink>
+            </amx:cellFormat>
+          </amx:rowLayout>
+        </amx:tableLayout>
+      </amx:listItem>
+    </amx:listView>
+  </amx:panelPage>
+</amx:view>

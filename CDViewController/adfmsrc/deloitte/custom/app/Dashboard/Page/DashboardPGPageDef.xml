@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.2.15" id="DashboardPGPageDef"
+                Package="deloitte.custom.app.Dashboard.Page">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ReportDetailsService" id="ReportDetailsServiceIterator"/>
+    <accessorIterator MasterBinding="ReportDetailsServiceIterator" Binds="reportDetails" RangeSize="25"
+                      DataControl="ReportDetailsService" BeanClass="deloitte.custom.app.application.model.ReportDetails"
+                      id="reportDetailsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="reportDetailsIterator" id="reportDetails">
+      <nodeDefinition DefName="deloitte.custom.app.application.model.ReportDetails" Name="reportDetails0">
+        <AttrNames>
+          <Item Value="reportId"/>
+          <Item Value="reportGraphType"/>
+          <Item Value="reportKeywords"/>
+          <Item Value="reportModule"/>
+          <Item Value="reportName"/>
+          <Item Value="reportUrl"/>
+          <Item Value="userRole"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

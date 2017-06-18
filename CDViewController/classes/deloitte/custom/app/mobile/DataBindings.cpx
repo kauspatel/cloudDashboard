@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.2.15" id="DataBindings"
+             SeparateXMLFiles="false" Package="deloitte.custom.app.mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/deloitte.custom.app.Dashboard/Page/DashboardPG.amx"
+          usageId="deloitte_custom_app_mobile_DashboardPGPageDef"/>
+    <page path="/deloitte.custom.app.Springboard/Page/SpringboardCustomPG.amx"
+          usageId="deloitte_custom_app_mobile_SpringboardCustomPGPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="deloitte_custom_app_mobile_DashboardPGPageDef"
+          path="deloitte.custom.app.Dashboard.Page.DashboardPGPageDef"/>
+    <page id="deloitte_custom_app_mobile_SpringboardCustomPGPageDef"
+          path="deloitte.custom.app.Springboard.Page.SpringboardCustomPGPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="ApplicationFeatures" path="deloitte.custom.app.application.ApplicationFeatures"/>
+    <dc id="FeaturesService" path="deloitte.custom.app.application.FeaturesService"/>
+    <dc id="ReportDetailsService" path="deloitte.custom.app.application.ReportDetailsService"/>
+  </dataControlUsages>
+</Application>

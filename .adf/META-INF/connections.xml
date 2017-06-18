@@ -1,0 +1,13 @@
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="ReportDetails" className="oracle.adf.model.connection.rest.RestConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="ReportDetails">
+        <Contents>
+          <restconnection name="ReportDetails"
+                          url="http://129.156.124.100/soa-infra/resources/default/CDReportDetailsService"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+</References>

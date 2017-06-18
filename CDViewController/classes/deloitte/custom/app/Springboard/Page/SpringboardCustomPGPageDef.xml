@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.2.15" id="SpringboardCustomPGPageDef"
+                Package="deloitte.custom.app.Springboard.Page">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="FeaturesService" id="FeaturesServiceIterator"/>
+    <accessorIterator MasterBinding="FeaturesServiceIterator" Binds="features" RangeSize="25"
+                      DataControl="FeaturesService" BeanClass="deloitte.custom.app.application.model.Features"
+                      id="featuresIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="featuresIterator" id="features">
+      <nodeDefinition DefName="deloitte.custom.app.application.model.Features" Name="features0">
+        <AttrNames>
+          <Item Value="feature_name"/>
+          <Item Value="feature_id"/>
+          <Item Value="icon_name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="resetFeature" RequiresUpdateModel="true" Action="invokeMethod" MethodName="resetFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="fid" NDValue="#{pageFlowScope.FeatureId}" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

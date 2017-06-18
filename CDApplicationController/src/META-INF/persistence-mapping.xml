@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mobileObjectPersistence xmlns="http://xmlns.oracle.com/adf/mf/amx/cdm/persistenceMapping" logWebServiceCalls="true">
+   <classMappingDescriptor className="deloitte.custom.app.application.model.ReportDetails" persisted="true">
+      <crudServiceClass className="deloitte.custom.app.application.model.service.ReportDetailsService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.maf.api.cdm.persistence.manager.RestJSONPersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="true" enableOfflineTransactions="true"/>
+      <table name="REPORT_DETAILS">
+         <primaryKeyColumn name="REPORT_NAME"/>
+      </table>
+      <attributeMappings>
+         <directMapping attributeName="reportId" payloadAttributeName="ReportId" columnName="REPORT_ID" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="reportName" payloadAttributeName="ReportName" columnName="REPORT_NAME" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="reportUrl" payloadAttributeName="ReportUrl" columnName="REPORT_URL" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="reportGraphType" payloadAttributeName="ReportGraphType" columnName="REPORT_GRAPH_TYPE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="userRole" payloadAttributeName="UserRole" columnName="USER_ROLE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="reportKeywords" payloadAttributeName="ReportKeywords" columnName="REPORT_KEYWORDS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="reportModule" payloadAttributeName="ReportModule" columnName="REPORT_MODULE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+      </attributeMappings>
+      <methods>
+         <findAllMethod uri="CDReportDetailsRestService/" connectionName="ReportDetails" requestType="GET" sendDataObjectAsPayload="false" deleteLocalRows="true" payloadElementName="ReportDetails">
+            <headerParameter name="Content-Type" value="application/json"/>
+            <headerParameter name="Accept" value="application/json"/>
+         </findAllMethod>
+      </methods>
+   </classMappingDescriptor>
+   <classMappingDescriptor className="oracle.maf.api.cdm.mcs.storage.StorageObject" persisted="true">
+      <crudServiceClass className="oracle.maf.api.cdm.mcs.storage.StorageObjectService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remotePersistenceManager="oracle.maf.impl.cdm.persistence.manager.MCSStoragePersistenceManager" remoteReadInBackground="true" remoteWriteInBackground="true" showWebServiceInvocationErrors="true" autoQuery="false" enableOfflineTransactions="true"/>
+      <table name="STORAGE_OBJECT">
+         <primaryKeyColumn name="ID"/>
+         <primaryKeyColumn name="COLLECTION_NAME"/>
+      </table>
+      <attributeMappings>
+         <directMapping attributeName="createdOn" payloadAttributeName="createdOn" columnName="CREATED_ON" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="eTag" columnName="E_TAG" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="id" payloadAttributeName="id" columnName="ID" columnDataType="VARCHAR" required="true" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="modifiedOn" payloadAttributeName="modifiedOn" columnName="MODIFIED_ON" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="createdBy" payloadAttributeName="createdBy" columnName="CREATED_BY" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="modifiedBy" payloadAttributeName="modifiedBy" columnName="MODIFIED_BY" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="name" payloadAttributeName="name" columnName="NAME" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="contentType" payloadAttributeName="contentType" columnName="CONTENT_TYPE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="contentLength" payloadAttributeName="contentLength" columnName="CONTENT_LENGTH" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.lang.Long" keyAttribute="false"/>
+         <directMapping attributeName="collectionName" payloadAttributeName="collectionName" columnName="COLLECTION_NAME" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="filePath" columnName="FILE_PATH" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+      </attributeMappings>
+      <methods>
+         <findMethod uri="/platform/storage/collections/{collection}/objects" requestType="GET" sendDataObjectAsPayload="false" payloadElementName="items">
+            <parameter name="collection" valueProvider="SearchValue" pathParam="true"/>
+         </findMethod>
+      </methods>
+   </classMappingDescriptor>
+   <classMappingDescriptor className="oracle.maf.api.cdm.persistence.service.DataSynchAction" dateFormat="dd-MMM-yyyy">
+      <table name="DATA_SYNCH_ACTIONS">
+         <primaryKeyColumn name="SERVICE_CLASS_NAME"/>
+         <primaryKeyColumn name="ID"/>
+      </table>
+      <attributeMappings>
+         <directMapping attributeName="id" columnName="ID" columnDataType="NUMERIC" required="true" javaType="java.lang.Integer" keyAttribute="true"/>
+         <directMapping attributeName="serviceClass" columnName="SERVICE_CLASS_NAME" columnDataType="VARCHAR" required="true" javaType="java.lang.String" keyAttribute="true"/>
+         <directMapping attributeName="entityClassString" columnName="ENTITY_CLASS_NAME" columnDataType="VARCHAR" javaType="java.lang.String"/>
+         <directMapping attributeName="entityAsJSONString" columnName="JSON_PAYLOAD" columnDataType="VARCHAR" javaType="java.lang.String"/>
+         <directMapping attributeName="action" columnName="ACTION" columnDataType="VARCHAR" javaType="java.lang.String"/>
+         <directMapping attributeName="dateCreated" columnName="DATE_CREATED" columnDataType="DATE" javaType="java.util.Date"/>
+         <directMapping attributeName="lastSynchAttempt" columnName="DATE_LAST_SYNCH" columnDataType="DATE" javaType="java.util.Date"/>
+         <directMapping attributeName="lastSynchError" columnName="LAST_SYNCH_ERROR" columnDataType="VARCHAR" javaType="java.lang.String"/>
+         <directMapping attributeName="customMethodName" columnName="CUSTOM_METHOD_NAME" columnDataType="VARCHAR" javaType="java.lang.String"/>
+      </attributeMappings>
+   </classMappingDescriptor>
+   <classMappingDescriptor className="oracle.maf.impl.cdm.logging.WebServiceCall" persisted="true" orderBy="TIMESTAMP desc">
+      <crudServiceClass className="oracle.maf.impl.cdm.logging.WebServiceCallService" autoIncrementPrimaryKey="true" localPersistenceManager="oracle.maf.api.cdm.persistence.manager.DBPersistenceManager" remoteReadInBackground="false" remoteWriteInBackground="false" showWebServiceInvocationErrors="false" autoQuery="true" enableOfflineTransactions="false"/>
+      <table name="WEB_SERVICE_CALL">
+         <primaryKeyColumn name="ID"/>
+      </table>
+      <attributeMappings>
+         <directMapping attributeName="id" payloadAttributeName="id" columnName="ID" columnDataType="NUMERIC" required="true" persisted="true" javaType="java.lang.Integer" keyAttribute="true"/>
+         <directMapping attributeName="connection" payloadAttributeName="connection" columnName="CONNECTION" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="request" payloadAttributeName="request" columnName="REQUEST" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="method" payloadAttributeName="method" columnName="METHOD" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="requestHeaders" payloadAttributeName="requestHeaders" columnName="REQUEST_HEADERS" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="duration" payloadAttributeName="duration" columnName="DURATION" columnDataType="NUMERIC" required="false" persisted="true" javaType="java.lang.Integer" keyAttribute="false"/>
+         <directMapping attributeName="requestPayload" payloadAttributeName="requestPayload" columnName="REQUEST_PAYLOAD" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="responsePayload" payloadAttributeName="responsePayload" columnName="RESPONSE_PAYLOAD" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="errorMessage" payloadAttributeName="errorMessage" columnName="ERROR_MESSAGE" columnDataType="VARCHAR" required="false" persisted="true" javaType="java.lang.String" keyAttribute="false"/>
+         <directMapping attributeName="timestamp" payloadAttributeName="timestamp" columnName="TIMESTAMP" columnDataType="DATE" required="false" persisted="true" javaType="java.util.Date" keyAttribute="false"/>
+      </attributeMappings>
+      <methods/>
+   </classMappingDescriptor>
+</mobileObjectPersistence>
