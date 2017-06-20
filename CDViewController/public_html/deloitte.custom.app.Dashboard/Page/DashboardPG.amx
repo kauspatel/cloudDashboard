@@ -127,6 +127,7 @@
                 <amx:setPropertyListener id="spl1" from="#{row.reportUrl}" to="#{pageFlowScope.currReportUrl}"/>
             </amx:listItem>
         </amx:listView>
+        
         <amx:facet name="primary">
             <amx:tableLayout id="tl7" width="100%" styleClass="appIconStyle">
                 <amx:rowLayout id="rl7">

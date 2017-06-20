@@ -104,21 +104,25 @@ public class CloudManagedBean {
         Connection conn = null;
         String returnValue = "";
         try {
-            String[] searchKeyworkArray=searchKeyword.split(" "); 
+            String[] searchKeyworkArray=searchKeyword.toLowerCase().split(" "); 
             Collection listTwo = new ArrayList(Arrays.asList(searchKeyworkArray));
             conn = ConnectionFactory.getConnection();
             Statement stmt = conn.createStatement();
             StringBuffer query = new StringBuffer();
-            query.append("SELECT REPORT_URL FROM REPORT_DETAILS");
+            query.append("SELECT REPORT_URL,REPORT_KEYWORDS FROM REPORT_DETAILS");
             Map<String, Integer> map = new HashMap<String, Integer>(); 
             ResultSet result = stmt.executeQuery(query.toString());
             while (result.next()) {
                 System.out.println("inside first while");
                 String reportUrl = (String) result.getObject("REPORT_URL");
-                String[] reportUrlArray=reportUrl.split(",");
-                Collection listOne = new ArrayList(Arrays.asList(reportUrlArray));
+                String reportKeywords = (String) result.getObject("REPORT_KEYWORDS");
+                String[] reportKeywordsArray=reportKeywords.split(",");
+                Collection listOne = new ArrayList(Arrays.asList(reportKeywordsArray));
                 listOne.retainAll( listTwo );
-                map.put(reportUrl, listOne.size());
+                if(listOne.size()>0){
+                    map.put(reportUrl, listOne.size()); 
+                }
+                
             }
             Set<Entry<String, Integer>> set = map.entrySet();
                     List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);
@@ -142,6 +146,12 @@ public class CloudManagedBean {
         }
         return returnValue;
     }
-    
-   
+
+
+//    public String testVoice() {
+//        // Add event code here...
+//        String s = (String) AdfmfJavaUtilities.getELValue("#{pageFlowScope.textVal}");
+//        getFilteredReportUrl(s);
+//        return null;
+//    }
 }
