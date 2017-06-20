@@ -11,6 +11,57 @@
                 </amx:rowLayout>
             </amx:tableLayout>
         </amx:facet>
+        <amx:verbatim id="v1">
+    <![CDATA[
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+    var recognition;
+    
+    // device APIs are available
+    //
+    function navigateToReportUrl() {
+    var args = arguments;
+        var url = ""+ args[0];
+       var ref = window.open(url, '_blank', 'location=yes');
+    }
+    
+    function StartSpeechToText(){
+    recognition.start();
+    }
+    
+    function onDeviceReady() {
+    recognition = new SpeechRecognition();
+    recognition.onresult = function(event) {
+    var speechStr;
+        if (event.results.length > 0) {
+            speechStr = event.results[0][0].transcript;
+            
+            adf.mf.api.invokeMethod("deloitte.custom.app.application.CloudManagedBean", "processSpeech",speechStr, onInvokeSuccess, onFail);
+        }
+    }
+    }
+    
+    function onInvokeSuccess() {
+	//To do code after success
+	};
+
+    function onFail() {
+	//To do code after failure
+	};
+        
+        function showAlert() {
+    var args = arguments;
+        var voiceTxt = ""+ args[0];
+      alert("No matches found for :: "+voiceTxt);
+    };
+</script>
+    
+]]>
+    </amx:verbatim>
         <amx:listView var="row" value="#{bindings.reportDetails.collectionModel}"
                       fetchSize="#{bindings.reportDetails.rangeSize}"
                       selectedRowKeys="#{bindings.reportDetails.collectionModel.selectedRow}"
@@ -18,7 +69,8 @@
                       selectionListener="#{bindings.reportDetails.collectionModel.makeCurrent}"
                       showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
             <amx:listItem id="li1"
-                          inlineStyle="#{((row.rowKey)%2)==0 ? 'background-color:#00adff; padding-bottom:10;' : 'background-color:#00b500; padding-bottom:10;'}">
+                          inlineStyle="#{((row.rowKey)%2)==0 ? 'background-color:#00adff; padding-bottom:10;' : 'background-color:#00b500; padding-bottom:10;'}"
+                          action="#{CloudManagedBean.naviagateToReportUrl}">
                 <amx:tableLayout id="tl4" layout="weighted" width="100%" rendered="#{((row.rowKey)%2)!=0}">
                     <amx:rowLayout id="rl6">
                         <amx:cellFormat id="cf3" width="70%">
@@ -55,25 +107,24 @@
                                     <amx:cellFormat width="100%"
                                                     height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf9"
                                                     columnSpan="2">
-                                        <amx:goLink text="#{row.reportName}" id="gl2" url="#{row.reportUrl}"
-                                                    styleClass="remove_ul"/>
+                                        <amx:outputText value="#{row.reportName}" id="ot6"/>
                                     </amx:cellFormat>
                                 </amx:rowLayout>
                                 <amx:rowLayout id="rl8">
                                     <amx:cellFormat width="50%" height="#{deviceScope.device.os=='Android'?'22':'19'}px"
                                                     id="cf10">
-                                        <amx:outputText value="#{row.userRole}" styleClass="report_detail"
-                                                        id="ot2"/>
+                                        <amx:outputText value="#{row.userRole}" styleClass="report_detail" id="ot2"/>
                                     </amx:cellFormat>
                                     <amx:cellFormat width="50%" halign="end" id="cf11">
-                                        <amx:outputText value="#{row.reportModule}"
-                                                        styleClass="report_detail" id="ot3"/>
+                                        <amx:outputText value="#{row.reportModule}" styleClass="report_detail"
+                                                        id="ot3"/>
                                     </amx:cellFormat>
                                 </amx:rowLayout>
                             </amx:tableLayout>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
+                <amx:setPropertyListener id="spl1" from="#{row.reportUrl}" to="#{pageFlowScope.currReportUrl}"/>
             </amx:listItem>
         </amx:listView>
         <amx:facet name="primary">
@@ -87,6 +138,9 @@
                     </amx:cellFormat>
                 </amx:rowLayout>
             </amx:tableLayout>
+        </amx:facet>
+        <amx:facet name="footer">
+            <amx:commandButton text="Touch &amp; Speak" id="cb1" action="#{CloudManagedBean.startVoiceRecognition}"/>
         </amx:facet>
     </amx:panelPage>
 </amx:view>
