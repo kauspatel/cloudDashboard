@@ -45,13 +45,11 @@ html[dir=ltr] .amx-selectOneChoice .selectItemsContainer {
 }
 
 .amx-panelPage-facet-primary{
-    width:10%;
-	align-items:center;
+    width:15%;
 }
 
 .amx-panelPage-facet-secondary{
-    width:10%;
-	align-items:center;
+    width:15%;
 }
 
 .amx-panelPage-header{
@@ -64,8 +62,7 @@ html[dir=ltr] .amx-selectOneChoice .selectItemsContainer {
 }
 
 .amx-panelPage-facet-header{
-	align-items:center;
-	width:80%
+	width:70%
 }
 
 .amx-panelPage-header .amx-outputText  {
