@@ -97,7 +97,7 @@
                         </amx:cellFormat>
                         <amx:cellFormat id="cf4" width="30%" halign="end">
                             <amx:image id="i1" source="/resources/css/images/#{row.reportGraphType}.png"
-                                       inlineStyle="width:50%"/>
+                                       styleClass="report_icon"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
@@ -105,7 +105,7 @@
                     <amx:rowLayout id="rl4">
                         <amx:cellFormat id="cf12" width="30%" halign="start">
                             <amx:image id="i2" source="/resources/css/images/#{row.reportGraphType}.png"
-                                       inlineStyle="width:50%"/>
+                                       styleClass="report_icon"/>
                         </amx:cellFormat>
                         <amx:cellFormat id="cf7" width="70%">
                             <amx:tableLayout width="100%" id="tl5" cellPadding="10">

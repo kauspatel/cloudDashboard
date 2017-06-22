@@ -100,6 +100,12 @@ color: white;
 font-weight: bold;
 }
 
+.report_icon {
+    width:50%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
 /* Same padding for LTR & RTL but for specificity, we are adding html[dir] to the selector */
 html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topStart .field-value,
 html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topCenter .field-value,
@@ -117,7 +123,7 @@ html[dir="ltr"] .amx-panelFormLayout.amx-label-position-topEnd .field-value {
    }
 
 .appIconStyle{
-    padding-left: 10px;
+    padding: 5%;
 }
 
 .iconstyle text{

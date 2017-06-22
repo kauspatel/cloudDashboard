@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
-  <amx:panelPage id="pp1">
+  <amx:panelPage id="pp1"
+                 inlineStyle="border-width:medium thick; border-color:black; border-right-color:ButtonText; border-right-width:thin; border-right-style:ridge;">
         <amx:facet name="header">
             <amx:tableLayout id="tl1" width="100%">
                 <amx:rowLayout id="rl1">
@@ -29,14 +30,14 @@
         <amx:tableLayout id="tl2" halign="center" layout="weighted">
           <amx:rowLayout id="rl2">
             <amx:cellFormat id="cf2" valign="middle" halign="start">
-              <amx:commandLink id="cl1" actionListener="#{bindings.resetFeature.execute}">
-                <amx:outputText value="#{row.feature_name}" id="ot2"/>
+              <amx:commandButton text="#{row.feature_name}" id="cb2" actionListener="#{bindings.resetFeature.execute}"
+                                 inlineStyle="font-size:large; font-weight:bold;">
                 <amx:setPropertyListener id="spl2" from="#{'false'}"
                         to="#{applicationScope.CloudManagedBean.springBoardStatus}" type="action"/>
                 <amx:setPropertyListener id="spl3" to="#{pageFlowScope.FeatureId}" type="action"
                                         from="#{row.feature_id}"/>
                 <amx:actionListener id="al2" binding="#{SlidingDrawerBean.leftOverlay}"/>
-               </amx:commandLink>
+              </amx:commandButton>
             </amx:cellFormat>
           </amx:rowLayout>
         </amx:tableLayout>
