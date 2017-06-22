@@ -7,6 +7,12 @@
   <adfmf:featureReference refId="deloitte.custom.app.Springboard" id="fr2" showOnNavigationBar="false"
                           showOnSpringboard="false"/>
   <adfmf:featureReference refId="deloitte.custom.app.Settings" id="fr3"/>
+  <adfmf:preferences>
+    <adfmf:preferenceGroup id="userPref" label="User Preferences">
+      <adfmf:preferenceText id="userGroup" label="User Access Group"/>
+      <adfmf:preferenceText id="reportModule" label="Report Module"/>
+    </adfmf:preferenceGroup>
+  </adfmf:preferences>
   <adfmf:navigation>
     <adfmf:springboard enabled="false" showSpringboardAtStartup="false" width="300"/>
     <adfmf:navigationBar enabled="false"/>

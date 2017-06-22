@@ -23,5 +23,39 @@
                 </amx:rowLayout>
             </amx:tableLayout>
         </amx:facet>
-  </amx:panelPage>
+    <amx:tableLayout id="tl5" width="100%" inlineStyle="background-color:#ECECEC;"  cellPadding="10">
+      <amx:rowLayout id="rl6">
+        <amx:cellFormat id="cf13" width="10px"/>
+        <amx:cellFormat id="cf14" width="50%">
+          <amx:outputText value="User Access Role" id="ot6" inlineStyle="font-size:small;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf15" width="50%">
+          <amx:selectOneChoice value="#{preferenceScope.application.userPref.userGroup}" label="Date Range"
+                               simple="true">
+            <amx:selectItem label="All" value="-1" id="si1"/>
+            <amx:selectItem label="Inventory Manager" value="Inventory Manager" id="si2"/>
+            <amx:selectItem label="Finance Admin" value="Finance Admin" id="si3"/>
+            <amx:selectItem label="OM Admin" value="OM Admin" id="si4"/>
+          </amx:selectOneChoice>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+     <amx:tableLayout id="tl6" width="100%" cellPadding="10">
+      <amx:rowLayout id="rl7">
+        <amx:cellFormat id="cf16" width="10px"/>
+        <amx:cellFormat id="cf18" width="50%">
+          <amx:outputText value="Report Module" id="ot7" inlineStyle="font-size:small;"/>
+        </amx:cellFormat>
+        <amx:cellFormat id="cf17" width="50%">
+          <amx:selectOneChoice value="#{preferenceScope.application.userPref.reportModule}" label="Show Closed Orders"
+                               simple="true">
+            <amx:selectItem label="All" value="-1" id="si5"/>
+            <amx:selectItem label="Inventory Management" value="INV" id="si6"/>
+            <amx:selectItem label="Record to Report" value="R2R" id="si7"/>
+            <amx:selectItem label="Warehouse" value="WSH" id="si8"/>
+          </amx:selectOneChoice>
+        </amx:cellFormat>
+      </amx:rowLayout>
+    </amx:tableLayout>
+    </amx:panelPage>
 </amx:view>

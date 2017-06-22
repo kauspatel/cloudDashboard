@@ -62,78 +62,6 @@
     
 ]]>
     </amx:verbatim>
-        <amx:listView var="row" value="#{bindings.reportDetails.collectionModel}"
-                      fetchSize="#{bindings.reportDetails.rangeSize}"
-                      selectedRowKeys="#{bindings.reportDetails.collectionModel.selectedRow}"
-                      initialScrollRowKeys="#{bindings.reportDetails.collectionModel.selectedRow}"
-                      selectionListener="#{bindings.reportDetails.collectionModel.makeCurrent}"
-                      showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
-            <amx:listItem id="li1"
-                          inlineStyle="#{((row.rowKey)%2)==0 ? 'background-color:#00adff; padding-bottom:10;' : 'background-color:#00b500; padding-bottom:10;'}"
-                          action="#{CloudManagedBean.naviagateToReportUrl}">
-                <amx:tableLayout id="tl4" layout="weighted" width="100%" rendered="#{((row.rowKey)%2)!=0}">
-                    <amx:rowLayout id="rl6">
-                        <amx:cellFormat id="cf3" width="70%">
-                            <amx:tableLayout width="100%" id="tl2" cellPadding="10">
-                                <amx:rowLayout id="rl3">
-                                    <amx:cellFormat width="100%"
-                                                    height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf2"
-                                                    columnSpan="2" >
-                                        <amx:outputText value="#{row.reportName}" id="ot6" styleClass="remove_ul"/>
-                                    </amx:cellFormat>
-                                </amx:rowLayout>
-                                <amx:rowLayout id="rl2">
-                                    <amx:cellFormat width="50%" height="#{deviceScope.device.os=='Android'?'22':'19'}px"
-                                                    id="cf5">
-                                        <amx:outputText value="Group: #{row.userRole}" styleClass="report_detail"
-                                                        id="ot4"/>
-                                    </amx:cellFormat>
-                                    <amx:cellFormat width="50%" halign="end" id="cf6">
-                                        <amx:outputText value="Module: #{row.reportModule}"
-                                                        styleClass="report_detail" id="ot5"/>
-                                    </amx:cellFormat>
-                                </amx:rowLayout>
-                            </amx:tableLayout>
-                        </amx:cellFormat>
-                        <amx:cellFormat id="cf4" width="30%" halign="end">
-                            <amx:image id="i1" source="/resources/css/images/#{row.reportGraphType}.png"
-                                       styleClass="report_icon"/>
-                        </amx:cellFormat>
-                    </amx:rowLayout>
-                </amx:tableLayout>
-                <amx:tableLayout id="tl3" layout="weighted" width="100%" rendered="#{((row.rowKey)%2)==0}">
-                    <amx:rowLayout id="rl4">
-                        <amx:cellFormat id="cf12" width="30%" halign="start">
-                            <amx:image id="i2" source="/resources/css/images/#{row.reportGraphType}.png"
-                                       styleClass="report_icon"/>
-                        </amx:cellFormat>
-                        <amx:cellFormat id="cf7" width="70%">
-                            <amx:tableLayout width="100%" id="tl5" cellPadding="10">
-                                <amx:rowLayout id="rl5">
-                                    <amx:cellFormat width="100%"
-                                                    height="#{deviceScope.device.os=='Android'?'36':'32'}px" id="cf9"
-                                                    columnSpan="2">
-                                        <amx:outputText value="#{row.reportName}" id="ot7" styleClass="remove_ul"/>
-                                    </amx:cellFormat>
-                                </amx:rowLayout>
-                                <amx:rowLayout id="rl8">
-                                    <amx:cellFormat width="50%" height="#{deviceScope.device.os=='Android'?'22':'19'}px"
-                                                    id="cf10">
-                                        <amx:outputText value="Group: #{row.userRole}" styleClass="report_detail" id="ot2"/>
-                                    </amx:cellFormat>
-                                    <amx:cellFormat width="50%" halign="end" id="cf11">
-                                        <amx:outputText value="Module: #{row.reportModule}" styleClass="report_detail"
-                                                        id="ot3"/>
-                                    </amx:cellFormat>
-                                </amx:rowLayout>
-                            </amx:tableLayout>
-                        </amx:cellFormat>
-                    </amx:rowLayout>
-                </amx:tableLayout>
-                <amx:setPropertyListener id="spl1" from="#{row.reportUrl}" to="#{pageFlowScope.currReportUrl}"/>
-            </amx:listItem>
-        </amx:listView>
-        
         <amx:facet name="primary">
             <amx:tableLayout id="tl7" width="100%" styleClass="appIconStyle">
                 <amx:rowLayout id="rl7">
@@ -146,6 +74,91 @@
                 </amx:rowLayout>
             </amx:tableLayout>
         </amx:facet>
+        <amx:panelStretchLayout id="psl1">
+            <amx:facet name="top"/>
+            <amx:facet name="center">
+                <amx:refreshContainer id="rc1" pullText="Pull to Refresh" busyText="Refreshing.."
+                                      actionListener="#{CloudManagedBean.pullDownToRefreshAction}">
+                    <amx:listView var="row" value="#{bindings.reportDetails.collectionModel}"
+                                  fetchSize="#{bindings.reportDetails.rangeSize}"
+                                  selectedRowKeys="#{bindings.reportDetails.collectionModel.selectedRow}"
+                                  initialScrollRowKeys="#{bindings.reportDetails.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.reportDetails.collectionModel.makeCurrent}"
+                                  showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
+                        <amx:listItem id="li1"
+                                      inlineStyle="#{((row.rowKey)%2)==0 ? 'background-color:#00adff; padding-bottom:10;' : 'background-color:#00b500; padding-bottom:10;'}"
+                                      action="#{CloudManagedBean.naviagateToReportUrl}">
+                            <amx:tableLayout id="tl4" layout="weighted" width="100%" rendered="#{((row.rowKey)%2)!=0}">
+                                <amx:rowLayout id="rl6">
+                                    <amx:cellFormat id="cf3" width="70%">
+                                        <amx:tableLayout width="100%" id="tl2" cellPadding="10">
+                                            <amx:rowLayout id="rl3">
+                                                <amx:cellFormat width="100%"
+                                                                height="#{deviceScope.device.os=='Android'?'36':'32'}px"
+                                                                id="cf2" columnSpan="2">
+                                                    <amx:outputText value="#{row.reportName}" id="ot6"
+                                                                    styleClass="remove_ul"/>
+                                                </amx:cellFormat>
+                                            </amx:rowLayout>
+                                            <amx:rowLayout id="rl2">
+                                                <amx:cellFormat width="50%"
+                                                                height="#{deviceScope.device.os=='Android'?'22':'19'}px"
+                                                                id="cf5">
+                                                    <amx:outputText value="Group: #{row.userRole}"
+                                                                    styleClass="report_detail" id="ot4"/>
+                                                </amx:cellFormat>
+                                                <amx:cellFormat width="50%" halign="end" id="cf6">
+                                                    <amx:outputText value="Module: #{row.reportModule}"
+                                                                    styleClass="report_detail" id="ot5"/>
+                                                </amx:cellFormat>
+                                            </amx:rowLayout>
+                                        </amx:tableLayout>
+                                    </amx:cellFormat>
+                                    <amx:cellFormat id="cf4" width="30%" halign="end">
+                                        <amx:image id="i1" source="/resources/css/images/#{row.reportGraphType}.png"
+                                                   styleClass="report_icon"/>
+                                    </amx:cellFormat>
+                                </amx:rowLayout>
+                            </amx:tableLayout>
+                            <amx:tableLayout id="tl3" layout="weighted" width="100%" rendered="#{((row.rowKey)%2)==0}">
+                                <amx:rowLayout id="rl4">
+                                    <amx:cellFormat id="cf12" width="30%" halign="start">
+                                        <amx:image id="i2" source="/resources/css/images/#{row.reportGraphType}.png"
+                                                   styleClass="report_icon"/>
+                                    </amx:cellFormat>
+                                    <amx:cellFormat id="cf7" width="70%">
+                                        <amx:tableLayout width="100%" id="tl5" cellPadding="10">
+                                            <amx:rowLayout id="rl5">
+                                                <amx:cellFormat width="100%"
+                                                                height="#{deviceScope.device.os=='Android'?'36':'32'}px"
+                                                                id="cf9" columnSpan="2">
+                                                    <amx:outputText value="#{row.reportName}" id="ot7"
+                                                                    styleClass="remove_ul"/>
+                                                </amx:cellFormat>
+                                            </amx:rowLayout>
+                                            <amx:rowLayout id="rl8">
+                                                <amx:cellFormat width="50%"
+                                                                height="#{deviceScope.device.os=='Android'?'22':'19'}px"
+                                                                id="cf10">
+                                                    <amx:outputText value="Group: #{row.userRole}"
+                                                                    styleClass="report_detail" id="ot2"/>
+                                                </amx:cellFormat>
+                                                <amx:cellFormat width="50%" halign="end" id="cf11">
+                                                    <amx:outputText value="Module: #{row.reportModule}"
+                                                                    styleClass="report_detail" id="ot3"/>
+                                                </amx:cellFormat>
+                                            </amx:rowLayout>
+                                        </amx:tableLayout>
+                                    </amx:cellFormat>
+                                </amx:rowLayout>
+                            </amx:tableLayout>
+                            <amx:setPropertyListener id="spl1" from="#{row.reportUrl}"
+                                                     to="#{pageFlowScope.currReportUrl}"/>
+                        </amx:listItem>
+                    </amx:listView>
+                </amx:refreshContainer>
+            </amx:facet>
+        </amx:panelStretchLayout>
         <amx:facet name="footer">
             <amx:commandButton text="Touch &amp; Speak" id="cb1" action="#{CloudManagedBean.startVoiceRecognition}"/>
         </amx:facet>

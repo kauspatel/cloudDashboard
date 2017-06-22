@@ -22,16 +22,21 @@ import java.util.Set;
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
+import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 
 import oracle.adfmf.util.Utility;
 import java.util.Map.Entry;
 
+import oracle.adfmf.java.beans.ProviderChangeSupport;
+
 
 public class CloudManagedBean {
     boolean springBoardStatus = false;
     String currentFeature;
+    private Boolean isRefreshComplete=false;
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
+    private transient ProviderChangeSupport providerChangeSupport = new ProviderChangeSupport(this);
 
     public void setSpringBoardStatus(boolean springBoardStatus) {
         boolean oldSpringBoardStatus = this.springBoardStatus;
@@ -148,10 +153,42 @@ public class CloudManagedBean {
     }
 
 
+
+    public void pullDownToRefreshAction(ActionEvent actionEvent) {
+        // Add event code here...
+        try {
+            AdfmfJavaUtilities.invokeDataControlMethod("ReportDetailsService", null, "findAllReportDetails", new ArrayList(), new ArrayList(), new ArrayList());
+            Thread.sleep(5000);
+            AdfmfJavaUtilities.flushDataChangeEvent();
+            providerChangeSupport.fireProviderRefresh("reportDetails");
+            isRefreshComplete=true;
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+
+
 //    public String testVoice() {
 //        // Add event code here...
 //        String s = (String) AdfmfJavaUtilities.getELValue("#{pageFlowScope.textVal}");
 //        getFilteredReportUrl(s);
 //        return null;
 //    }
+    public void setIsRefreshComplete(Boolean isRefreshComplete) {
+        Boolean oldIsRefreshComplete = this.isRefreshComplete;
+        this.isRefreshComplete = isRefreshComplete;
+        propertyChangeSupport.firePropertyChange("isRefreshComplete", oldIsRefreshComplete, isRefreshComplete);
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener l) {
+        propertyChangeSupport.addPropertyChangeListener(l);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener l) {
+        propertyChangeSupport.removePropertyChangeListener(l);
+    }
+
+    public Boolean getIsRefreshComplete() {
+        return isRefreshComplete;
+    }
 }
