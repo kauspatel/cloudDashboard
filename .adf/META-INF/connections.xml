@@ -5,7 +5,7 @@
       <XmlRefAddr addrType="ReportDetails">
         <Contents>
           <restconnection name="ReportDetails"
-                          url="http://129.156.124.100/soa-infra/resources/default/CDReportDetailsService"/>
+                          url="http://129.191.21.220/soa-infra/resources/MFG_CSP/CDReportDetailsService"/>
         </Contents>
       </XmlRefAddr>
     </RefAddresses>
