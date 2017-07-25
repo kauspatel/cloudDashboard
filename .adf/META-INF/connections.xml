@@ -10,4 +10,24 @@
       </XmlRefAddr>
     </RefAddresses>
   </Reference>
+  <Reference name="CloudDashSSO" className="oracle.adf.model.connection.adfmf.LoginConnection"
+             adfCredentialStoreKey="CloudDashSSO" partial="false" manageInOracleEnterpriseManager="true"
+             deployable="true" xmlns="">
+    <Factory className="oracle.adf.model.connection.adfmf.LoginConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="adfmfLogin">
+        <Contents>
+          <login url="https://ucf5-fap0635-idm.oracledemos.com/oam/server/obrareq.cgi?encquery%3D9ocv5N4PP9gxvEKVM9qkfQYgliKsdYSUb2fTbEm182CBrsakZHS%2FBcUFW9Qofu6OZKOQ9tiXBVJTP737Y7RoEhYiQb5kh7D2qVSIqUGy%2Bm%2BaWptuzYqvbhjxAvemIgkd5KwyCU0czSqlNML6u3Ga27aI0TpXPupNu1w3ieMx2fb%2F7x61jZZs51%2BE%2BYRPcQ%2FKDEyl8SHUzJ2SnCuk97vSgOjiR95Y51jzt6Gjri4L43CzM%2FIBhOxp3E%2FSY5w8PHl0UTlVXOylQYqBj74PNaoQOp6j60LTq0mMxyQyB3Rd4dV9Ep8xR82hFpndxlBpzIYp6x6mjoi%2FlJiSwBALekKapOSTyaNzpgTwkBDMaTuvgidM%2F3KLSH6ZBRoR%2FwDO1fQ5ZTVG7GNsohHp2bUNybnjIHC7PzxmBJ1PgvFfmvwThLeqpo6M92sWInlgt%2BghDvoiOh60x4O6KCzfU77ze13a71bacNrW1YtqiWRb1f1iKkDzDI1rD240PusUeC5BltKh%20agentid%3DOraFusionApp_11AG%20ver%3D1%20crmethod%3D2"/>
+          <logout url="https://ucf5-fap0635-fs.oracledemos.com/oamsso/logout.html"/>
+          <loginSuccessUrl url="https://ucf5-fap0635-fs.oracledemos.com/homePage/faces/AtkHomePageWelcome"/>
+          <loginFailureUrl url="https://ucf5-fap0635-fs.oracledemos.com/homePage/faces/AtkHomePageWelcome"/>
+          <authenticationMode value="remote"/>
+          <idleTimeout value="28800"/>
+          <sessionTimeout value="28800"/>
+          <accessControl/>
+          <userObjectFilter/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
 </References>

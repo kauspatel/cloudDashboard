@@ -81,11 +81,13 @@
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ADFm"/>
+         <string v="Database"/>
          <string v="HTML"/>
          <string v="JAVASCRIPT"/>
          <string v="Java"/>
          <string v="MAF"/>
          <string v="RESTWebServices"/>
+         <string v="TopLink"/>
          <string v="WSDL"/>
          <string v="WSPolicy"/>
          <string v="WebServices"/>
@@ -209,9 +211,43 @@
             <value n="profileClass" v="oracle.adfmf.framework.dt.deploy.features.FeatureArchiveProfile"/>
             <value n="profileName" v="CDApplicationController_MobileFeatureArchive1"/>
          </hash>
+         <hash n="ExternalReportWSSService-Client">
+            <hash n="archiveOptions">
+               <value n="hasManifest" v="true"/>
+            </hash>
+            <hash n="fileGroups">
+               <list n="groups">
+                  <hash>
+                     <list n="contributors">
+                        <hash>
+                           <value n="type" v="2"/>
+                        </hash>
+                        <hash>
+                           <value n="type" v="7"/>
+                        </hash>
+                     </list>
+                     <value n="displayName" v="Project Output"/>
+                     <hash n="filters">
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="**"/>
+                              <value n="type" v="0"/>
+                           </hash>
+                        </list>
+                     </hash>
+                     <value n="internalName" v="project-output"/>
+                     <value n="type" v="1"/>
+                  </hash>
+               </list>
+            </hash>
+            <url n="jarURL" path="deploy/ExternalReportWSSService-Client.jar"/>
+            <value n="profileClass" v="oracle.jdeveloper.deploy.jar.ArchiveProfile"/>
+            <value n="profileName" v="ExternalReportWSSService-Client"/>
+         </hash>
       </hash>
       <list n="profileList">
          <string v="CDApplicationController_MobileFeatureArchive1"/>
+         <string v="ExternalReportWSSService-Client"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
@@ -219,11 +255,13 @@
       <value n="j2eeWebContextRoot" v="CloudDashboardApp-CDApplicationController-context-root"/>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectLibraries">
+      <list n="exportedReferences"/>
       <hash n="jdkReference">
          <value n="id" v="MAF JDK 1.8 Compact 2 Profile"/>
          <value n="isJDK" v="true"/>
          <value n="jdkVersion" v="1.8.0_51"/>
       </hash>
+      <list n="libraryReferences"/>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
       <url n="outputDirectory" path="classes/"/>

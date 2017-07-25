@@ -3,10 +3,10 @@
                    version="1.0" name="CloudDashboardApp" id="com.company.CloudDashboardApp"
                    appControllerFolder="CDApplicationController"
                    listener-class="oracle.maf.impl.cdm.lifecycle.InitDBLifeCycleListener">
-  <adfmf:featureReference refId="deloitte.custom.app.Dashboard" id="fr1"/>
+  <adfmf:featureReference refId="deloitte.custom.app.Dashboard" id="fr1" loginConnRefId="CloudDashSSO"/>
   <adfmf:featureReference refId="deloitte.custom.app.Springboard" id="fr2" showOnNavigationBar="false"
-                          showOnSpringboard="false"/>
-  <adfmf:featureReference refId="deloitte.custom.app.Settings" id="fr3"/>
+                          showOnSpringboard="false" loginConnRefId="CloudDashSSO"/>
+  <adfmf:featureReference refId="deloitte.custom.app.Settings" id="fr3" loginConnRefId="CloudDashSSO"/>
   <adfmf:preferences>
     <adfmf:preferenceGroup id="userPref" label="User Preferences">
       <adfmf:preferenceText id="userGroup" label="User Access Group"/>
@@ -17,4 +17,5 @@
     <adfmf:springboard enabled="false" showSpringboardAtStartup="false" width="300"/>
     <adfmf:navigationBar enabled="false"/>
   </adfmf:navigation>
+  <adfmf:login defaultConnRefId="CloudDashSSO"/>
 </adfmf:application>
