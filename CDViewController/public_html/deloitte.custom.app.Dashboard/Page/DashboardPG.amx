@@ -6,7 +6,15 @@
             <amx:tableLayout id="tl1" width="100%">
                 <amx:rowLayout id="rl1">
                     <amx:cellFormat id="cf1" halign="center" valign="middle">
-                        <amx:outputText value="Welcome to your Dashboard!" id="ot1" inlineStyle="width:90%;"/>
+                        <amx:panelGroupLayout id="pgl1" layout="horizontal">
+                            <amx:outputText value="Deloitte" id="ot1" />
+                            <amx:outputText value="." id="ot9" inlineStyle="color:Lime; font-size:large;"/>
+                        </amx:panelGroupLayout>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl9">
+                    <amx:cellFormat id="cf13" halign="center" valign="middle">
+                        <amx:outputText value="Welcome to your Dashboard!" id="ot8" inlineStyle="width:90%;"/>
                     </amx:cellFormat>
                 </amx:rowLayout>
             </amx:tableLayout>
